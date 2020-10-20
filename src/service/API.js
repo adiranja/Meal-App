@@ -9,7 +9,7 @@ export function randomMeal()
 
 export function searchMeals(query)
 {
-  return axios.get(URL + `search.php?s=${query}`)  //dynamic rendering
+  return axios.get(URL + `search.php?s=${query}`)  
 }
 
 export function showMeals(id)

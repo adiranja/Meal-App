@@ -24,37 +24,27 @@
 </template>
 
 <script>
-import { searchMeals } from "../API.js";
+import { mapGetters } from "vuex";
 export default {
   name: "searchMeal",
-  data() {
-    return {
-      meals: []
-    };
-  },
-
   watch: {
     $route(to) {
       this.showResults(to.params.query);
     }
   },
   created() {
-    this.showResults(this.$route.params.query);
+    this.showResults();
+  },
+
+  computed: {
+    ...mapGetters({
+      meals: "getSearchMeal"
+    })
   },
 
   methods: {
-    showResults(query) {
-      searchMeals(query).then(response => {
-        this.meals = response.data["meals"];
-
-           if (this.meals == null)
-          this.$router.push({
-            name: "PageNotFound"
-
-          });
-      });
-
-
+    showResults() {
+      this.$store.dispatch("getSearchResult", this.$route.params.query);
     }
   }
 };

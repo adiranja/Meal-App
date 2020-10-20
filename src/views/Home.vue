@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <div v-for="(meal, index) in meals" :key="index">
+  <div>
+    <div class="home" v-for="(meal, index) in meals" :key="index">
       <router-link :to="{ name: 'showMeal', params: { id: meal.idMeal } }">
         <b-card
           img-top
@@ -16,27 +16,26 @@
 </template>
 
 <script>
-  
-
-import { randomMeal } from "../API.js";
+import { mapGetters } from "vuex";
 export default {
   name: "Home",
-  data() {
-    return {
-      meals: []
-    };
-  },
+
   created() {
-    randomMeal().then(response => {
-      this.meals = response.data["meals"];
-    });
+    this.$store.dispatch("getMeal");
+  },
+  computed: {
+    ...mapGetters({
+      meals: "getRandomMeal"
+    })
   }
 };
 </script>
 
 <style scoped>
 .home {
-  padding-top: 80px;
-  padding-left: 400px;
+  width: 300px;
+  height: 150px;
+
+  margin-top: 80px;
 }
 </style>
