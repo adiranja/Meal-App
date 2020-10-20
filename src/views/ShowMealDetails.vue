@@ -76,17 +76,13 @@ export default {
   methods: {
     getIngredient(index) {
       const ingredient = "strIngredient" + index;
-
       const mealIngredient = this.meals[0][ingredient];
-
       if (mealIngredient && mealIngredient.trim()) return mealIngredient;
     },
 
     getMeasure(index) {
       const measure = "strMeasure" + index;
-
       const mealMeasure = this.meals[0][measure];
-
       if (mealMeasure && mealMeasure.trim()) return mealMeasure;
     }
   }

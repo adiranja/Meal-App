@@ -8,6 +8,7 @@ Delish Meal App is a collection of  recipes of different meals all around the wo
 - Vue Router
 - Axios
 - Bootstrap Vue
+- Vuex
 
 ### Why VueJS?
 

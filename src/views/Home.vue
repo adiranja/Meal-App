@@ -35,7 +35,6 @@ export default {
 .home {
   width: 300px;
   height: 150px;
-
   margin-top: 80px;
 }
 </style>
